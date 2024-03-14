@@ -1,0 +1,9 @@
+numpy<1.24.0
+torch==2.0.1
+torchvision==0.15.2
+diffusers==0.22.0
+transformers==4.34.1
+accelerate
+insightface
+onnxruntime-gpu
+gradio
