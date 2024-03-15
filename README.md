@@ -44,7 +44,7 @@ hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="arc2face/diffusion_pytor
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="encoder/config.json", local_dir="./models")
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="encoder/pytorch_model.bin", local_dir="./models")
 ```
-For face detection and ID-embedding extraction, download the [antelopev2](https://github.com/deepinsight/insightface/tree/master/python-package) package and place the checkpoints under `models/antelopev2`. We use an ArcFace trained on WebFace42M. Download `arcface.onnx` from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) and put it in `models/antelopev2` or using python:
+For face detection and ID-embedding extraction, download the [antelopev2](https://github.com/deepinsight/insightface/tree/master/python-package) package and place the checkpoints under `models/antelopev2`. We use an ArcFace recognition model trained on WebFace42M. Download `arcface.onnx` from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) and put it in `models/antelopev2` or using python:
 ```python
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="arcface.onnx", local_dir="./models/antelopev2")
 ```
