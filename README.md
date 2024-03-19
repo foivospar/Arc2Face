@@ -9,7 +9,7 @@
 Imperial College London, UK
 
 <a href='https://arc2face.github.io/'><img src='https://img.shields.io/badge/Project-Page-blue'></a>
-<a href=''><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
+<a href='https://arxiv.org/abs/2403.11641'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
 <a href='https://huggingface.co/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-orange'></a>
 
 </div>
@@ -91,7 +91,7 @@ pipeline = StableDiffusionPipeline.from_pretrained(
         safety_checker=None
     )
 ```
-You can use use any SD-compatible schedulers and steps, just like with Stable Diffusion. By default, we use `DPMSolverMultistepScheduler` with 25 steps, which produces very good results in just a few seconds.
+You can use any SD-compatible schedulers and steps, just like with Stable Diffusion. By default, we use `DPMSolverMultistepScheduler` with 25 steps, which produces very good results in just a few seconds.
 ```python
 pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config)
 pipeline = pipeline.to('cuda')
@@ -107,7 +107,7 @@ faces = app.get(img)
 faces = sorted(faces, key=lambda x:(x['bbox'][2]-x['bbox'][0])*(x['bbox'][3]-x['bbox'][1]))[-1]  # select largest face (if more than one detected)
 id_emb = torch.tensor(faces['embedding'], dtype=torch.float16)[None].cuda()
 id_emb = id_emb/torch.norm(id_emb, dim=1, keepdim=True)   # normalize embedding
-id_emb = project_face_embs(pipeline, id_emb)    # pass throught the encoder
+id_emb = project_face_embs(pipeline, id_emb)    # pass through the encoder
 ```
 
 <div align="center">
@@ -137,4 +137,12 @@ python gradio_demo/app.py
 If you find Arc2Face useful for your research, please consider citing us:
 
 ```bibtex
+@misc{paraperas2024arc2face,
+      title={Arc2Face: A Foundation Model of Human Faces}, 
+      author={Foivos Paraperas Papantoniou and Alexandros Lattas and Stylianos Moschoglou and Jiankang Deng and Bernhard Kainz and Stefanos Zafeiriou},
+      year={2024},
+      eprint={2403.11641},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```

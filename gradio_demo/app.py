@@ -129,6 +129,14 @@ Footer = r"""
 <br>
 If you find Arc2Face helpful for your research, please consider citing our paper:
 ```bibtex
+@misc{paraperas2024arc2face,
+      title={Arc2Face: A Foundation Model of Human Faces}, 
+      author={Foivos Paraperas Papantoniou and Alexandros Lattas and Stylianos Moschoglou and Jiankang Deng and Bernhard Kainz and Stefanos Zafeiriou},
+      year={2024},
+      eprint={2403.11641},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV}
+}
 ```
 """
 
