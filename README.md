@@ -23,6 +23,8 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 <img src='assets/teaser.gif'>
 
 # News/Updates
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/face-generation-on-agedb)](https://paperswithcode.com/sota/face-generation-on-agedb?p=arc2face-a-foundation-model-of-human-faces)
+
 - [2024/03/14] 🔥 We release Arc2Face.
 
 # Installation
