@@ -37,7 +37,7 @@ pip install -r requirements.txt
 ```
 
 # Download Models
-The models can be downloaded manually from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) or using python:
+1) The models can be downloaded manually from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) or using python:
 ```python
 from huggingface_hub import hf_hub_download
 
@@ -46,12 +46,16 @@ hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="arc2face/diffusion_pytor
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="encoder/config.json", local_dir="./models")
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="encoder/pytorch_model.bin", local_dir="./models")
 ```
-For face detection and ID-embedding extraction, download the [antelopev2](https://github.com/deepinsight/insightface/tree/master/python-package) package and place the checkpoints under `models/antelopev2`. We use an ArcFace recognition model trained on WebFace42M. Download `arcface.onnx` from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) and put it in `models/antelopev2` or using python:
+
+2) For face detection and ID-embedding extraction, manually download the [antelopev2](https://github.com/deepinsight/insightface/tree/master/python-package#model-zoo) package ([direct link](https://drive.google.com/file/d/18wEUfMNohBJ4K3Ly5wpTejPfDzp-8fI8/view)) and place the checkpoints under `models/antelopev2`. 
+
+3) We use an ArcFace recognition model trained on WebFace42M. Download `arcface.onnx` from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) and put it in `models/antelopev2` or using python:
 ```python
 hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="arcface.onnx", local_dir="./models/antelopev2")
 ```
-and **delete** `glintr100.onnx` (the default backbone from insightface). The `models` folder structure should finally be:
+4) Then **delete** `glintr100.onnx` (the default backbone from insightface).
 
+The `models` folder structure should finally be:
 ```
   . ── models ──┌── antelopev2
                 ├── arc2face
