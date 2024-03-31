@@ -26,6 +26,7 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 # News/Updates
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/face-generation-on-agedb)](https://paperswithcode.com/sota/face-generation-on-agedb?p=arc2face-a-foundation-model-of-human-faces)
 
+- [2024/03/31] 🔥 We release our demo for pose control using Arc2Face + ControlNet (see instructions [below](https://github.com/foivospar/Arc2Face/edit/main/README.md#arc2face--controlnet-pose)).
 - [2024/03/28] 🔥 We release our Gradio [demo](https://huggingface.co/spaces/FoivosPar/Arc2Face) on HuggingFace Spaces (thanks to the HF team for their free GPU support)!
 - [2024/03/14] 🔥 We release Arc2Face.
 
@@ -131,17 +132,57 @@ images = pipeline(prompt_embeds=id_emb, num_inference_steps=25, guidance_scale=3
 <img src='assets/samples.jpg'>
 </div>
 
-## Start a local gradio demo
+# Start a local gradio demo
 You can start a local demo for inference by running:
 ```python
 python gradio_demo/app.py
 ```
 
-## TODOs
-- Release inference code for pose-controlled Arc2Face.
+# Arc2Face + ControlNet (pose)
+<div align="center">
+<img src='assets/controlnet.jpg'>
+</div>
+
+We provide a ControlNet model trained on top of Arc2Face for pose control. We use [EMOCA](https://github.com/radekd91/emoca) for 3D pose extraction. To run our demo, follow the steps below:
+### 1) Download Model
+Download the ControlNet checkpoint manually from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) or using python:
+```python
+from huggingface_hub import hf_hub_download
+
+hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="controlnet/config.json", local_dir="./models")
+hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="controlnet/diffusion_pytorch_model.safetensors", local_dir="./models")
+```
+### 2) Pull EMOCA
+```bash
+git submodule update --init external/emoca
+```
+### 3) Installation
+This is the most tricky part. You will need PyTorch3D to run EMOCA. As its installation may cause conflicts, we suggest to follow the process below:
+1) Create a new environment and start by installing PyTorch3D with GPU support first (follow the official [instructions](https://github.com/facebookresearch/pytorch3d/blob/main/INSTALL.md)).
+2) Add Arc2Face + EMOCA requirements with:
+```bash
+pip install -r requirements_controlnet.txt
+```
+3) Install EMOCA code:
+```bash
+pip install -e external/emoca
+```
+4) Finally, you need to download the EMOCA/FLAME assets. Run the following and follow the instructions in the terminal:
+```bash
+cd external/emoca/gdl_apps/EMOCA/demos 
+bash download_assets.sh
+cd ../../../../..
+```
+### 4) Start a local gradio demo
+You can start a local ControlNet demo by running:
+```python
+python gradio_demo/app_controlnet.py
+```
+
+# TODOs
 - Release training dataset.
 
-## Citation
+# Citation
 If you find Arc2Face useful for your research, please consider citing us:
 
 ```bibtex
