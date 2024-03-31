@@ -1,0 +1,3 @@
+[submodule "external/emoca"]
+	path = external/emoca
+	url = https://github.com/foivospar/emoca.git
