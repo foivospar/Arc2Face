@@ -179,6 +179,14 @@ You can start a local ControlNet demo by running:
 python gradio_demo/app_controlnet.py
 ```
 
+# Community Resources
+
+### Replicate Demo
+- [Demo link](https://replicate.com/camenduru/arc2face) by [@camenduru](https://github.com/camenduru).
+
+### Pinokio
+- Pinokio [implementation](https://pinokio.computer/item?uri=https://github.com/cocktailpeanutlabs/arc2face) by [@cocktailpeanut](https://github.com/cocktailpeanut) (runs locally on all OS - Windows, Mac, Linux).
+
 # TODOs
 - Release training dataset.
 
