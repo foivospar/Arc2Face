@@ -24,7 +24,7 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 <img src='assets/teaser.gif'>
 
 # News/Updates
-[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/face-generation-on-agedb)](https://paperswithcode.com/sota/face-generation-on-agedb?p=arc2face-a-foundation-model-of-human-faces)
+[![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/diffusion-personalization-tuning-free-on)](https://paperswithcode.com/sota/diffusion-personalization-tuning-free-on?p=arc2face-a-foundation-model-of-human-faces)
 
 - [2024/03/31] 🔥 We release our demo for pose control using Arc2Face + ControlNet (see instructions [below](#arc2face--controlnet-pose)).
 - [2024/03/28] 🔥 We release our Gradio [demo](https://huggingface.co/spaces/FoivosPar/Arc2Face) on HuggingFace Spaces (thanks to the HF team for their free GPU support)!
