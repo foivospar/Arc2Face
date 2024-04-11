@@ -10,8 +10,9 @@ Imperial College London, UK
 
 <a href='https://arc2face.github.io/'><img src='https://img.shields.io/badge/Project-Page-blue'></a>
 <a href='https://arxiv.org/abs/2403.11641'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
-<a href='https://huggingface.co/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-orange'></a>
 <a href='https://huggingface.co/spaces/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Demo-green'></a>
+<a href='https://huggingface.co/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-orange'></a>
+<a href='https://huggingface.co/datasets/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Data-8A2BE2'></a>
 
 </div>
 
@@ -26,6 +27,7 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 # News/Updates
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/diffusion-personalization-tuning-free-on)](https://paperswithcode.com/sota/diffusion-personalization-tuning-free-on?p=arc2face-a-foundation-model-of-human-faces)
 
+- [2024/04/11] 🔥 We release the training dataset on [HuggingFace Datasets](https://huggingface.co/datasets/FoivosPar/Arc2Face).
 - [2024/03/31] 🔥 We release our demo for pose control using Arc2Face + ControlNet (see instructions [below](#arc2face--controlnet-pose)).
 - [2024/03/28] 🔥 We release our Gradio [demo](https://huggingface.co/spaces/FoivosPar/Arc2Face) on HuggingFace Spaces (thanks to the HF team for their free GPU support)!
 - [2024/03/14] 🔥 We release Arc2Face.
@@ -186,9 +188,6 @@ python gradio_demo/app_controlnet.py
 
 ### Pinokio
 - Pinokio [implementation](https://pinokio.computer/item?uri=https://github.com/cocktailpeanutlabs/arc2face) by [@cocktailpeanut](https://github.com/cocktailpeanut) (runs locally on all OS - Windows, Mac, Linux).
-
-# TODOs
-- Release training dataset.
 
 # Citation
 If you find Arc2Face useful for your research, please consider citing us:
