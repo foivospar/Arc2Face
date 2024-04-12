@@ -145,7 +145,7 @@ from diffusers import LCMScheduler
 pipeline.load_lora_weights("latent-consistency/lcm-lora-sdv1-5")
 pipeline.scheduler = LCMScheduler.from_config(pipeline.scheduler.config)
 ```
-Then, you can sample with as few as 2 steps (and disable guidance_scale by using a value of 1.0, as LCM is very sensitive to it and even small values lead to oversaturation):
+Then, you can sample with as few as 2 steps (and disable `guidance_scale` by using a value of 1.0, as LCM is very sensitive to it and even small values lead to oversaturation):
 ```python
 images = pipeline(prompt_embeds=id_emb, num_inference_steps=2, guidance_scale=1.0, num_images_per_prompt=num_images).images
 ```
