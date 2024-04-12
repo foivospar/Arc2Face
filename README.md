@@ -28,6 +28,7 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 # News/Updates
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/diffusion-personalization-tuning-free-on)](https://paperswithcode.com/sota/diffusion-personalization-tuning-free-on?p=arc2face-a-foundation-model-of-human-faces)
 
+- [2024/04/12] 🔥 We add LCM-LoRA support for even faster inference (check the details [below](#lcm-lora-acceleration)).
 - [2024/04/11] 🔥 We release the training dataset on [HuggingFace Datasets](https://huggingface.co/datasets/FoivosPar/Arc2Face).
 - [2024/03/31] 🔥 We release our demo for pose control using Arc2Face + ControlNet (see instructions [below](#arc2face--controlnet-pose)).
 - [2024/03/28] 🔥 We release our Gradio [demo](https://huggingface.co/spaces/FoivosPar/Arc2Face) on HuggingFace Spaces (thanks to the HF team for their free GPU support)!
@@ -134,6 +135,21 @@ images = pipeline(prompt_embeds=id_emb, num_inference_steps=25, guidance_scale=3
 <div align="center">
 <img src='assets/samples.jpg'>
 </div>
+
+# LCM-LoRA acceleration
+
+[LCM-LoRA](https://arxiv.org/abs/2311.05556) allows you to reduce the sampling steps to as few as 2-4 for super-fast inference. Just plug in the pre-trained distillation adapter for SD v1.5 and switch to `LCMScheduler`:
+```python
+from diffusers import LCMScheduler
+
+pipeline.load_lora_weights("latent-consistency/lcm-lora-sdv1-5")
+pipeline.scheduler = LCMScheduler.from_config(pipeline.scheduler.config)
+```
+Then, you can sample with as few as 2 steps (and disable guidance_scale by using a value of 1.0, as LCM is very sensitive to it and even small values lead to oversaturation):
+```python
+images = pipeline(prompt_embeds=id_emb, num_inference_steps=2, guidance_scale=1.0, num_images_per_prompt=num_images).images
+```
+Note that this technique accelerates sampling in exchange for a slight drop in quality.
 
 # Start a local gradio demo
 You can start a local demo for inference by running:
