@@ -1,6 +1,7 @@
 numpy<1.24.0
-diffusers==0.22.0
+diffusers==0.23.0
 transformers==4.34.1
+peft
 accelerate
 insightface
 onnxruntime-gpu

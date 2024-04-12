@@ -5,6 +5,7 @@ from diffusers import (
     StableDiffusionPipeline,
     UNet2DConditionModel,
     DPMSolverMultistepScheduler,
+    LCMScheduler
 )
 
 from arc2face import CLIPTextModelWrapper, project_face_embs
@@ -21,9 +22,10 @@ import gradio as gr
 MAX_SEED = np.iinfo(np.int32).max
 if torch.cuda.is_available():
     device = "cuda"
+    dtype = torch.float16
 else:
     device = "cpu"
-dtype = torch.float16
+    dtype = torch.float32
 
 # Load face detection and recognition package
 app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvider', 'CPUExecutionProvider'])
@@ -46,6 +48,22 @@ pipeline = StableDiffusionPipeline.from_pretrained(
     )
 pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config)
 pipeline = pipeline.to(device)
+
+# load and disable LCM
+pipeline.load_lora_weights("latent-consistency/lcm-lora-sdv1-5")
+pipeline.disable_lora()
+
+def toggle_lcm_ui(value):
+    if value:
+        return (
+            gr.update(minimum=1, maximum=20, step=1, value=3),
+            gr.update(minimum=0.1, maximum=10.0, step=0.1, value=1.0),
+        )
+    else:
+        return (
+            gr.update(minimum=1, maximum=100, step=1, value=25),
+            gr.update(minimum=0.1, maximum=10.0, step=0.1, value=3.0),
+        )
 
 def randomize_seed_fn(seed: int, randomize_seed: bool) -> int:
     if randomize_seed:
@@ -76,10 +94,17 @@ def get_example():
     return case
 
 def run_example(img_file):
-    return generate_image(img_file, 25, 3, 23, 2)
+    return generate_image(img_file, 25, 3, 23, 2, False)
 
 
-def generate_image(image_path, num_steps, guidance_scale, seed, num_images, progress=gr.Progress(track_tqdm=True)):
+def generate_image(image_path, num_steps, guidance_scale, seed, num_images, use_lcm, progress=gr.Progress(track_tqdm=True)):
+
+    if use_lcm:
+        pipeline.scheduler = LCMScheduler.from_config(pipeline.scheduler.config)
+        pipeline.enable_lora()
+    else:
+        pipeline.disable_lora()
+        pipeline.scheduler = DPMSolverMultistepScheduler.from_config(pipeline.scheduler.config)
 
     if image_path is None:
         raise gr.Error(f"Cannot find any input face image! Please upload a face image.")
@@ -156,11 +181,16 @@ with gr.Blocks(css=css) as demo:
             img_file = gr.Image(label="Upload a photo with a face", type="filepath")
             
             submit = gr.Button("Submit", variant="primary")
+
+            use_lcm = gr.Checkbox(
+                label="Use LCM-LoRA to accelerate sampling", value=False,
+                info="Reduces sampling steps significantly, but may decrease quality.",
+            )
             
             with gr.Accordion(open=False, label="Advanced Options"):
                 num_steps = gr.Slider( 
                     label="Number of sample steps",
-                    minimum=20,
+                    minimum=1,
                     maximum=100,
                     step=1,
                     value=25,
@@ -170,7 +200,7 @@ with gr.Blocks(css=css) as demo:
                     minimum=0.1,
                     maximum=10.0,
                     step=0.1,
-                    value=3,
+                    value=3.0,
                 )
                 num_images = gr.Slider(
                     label="Number of output images",
@@ -199,10 +229,16 @@ with gr.Blocks(css=css) as demo:
             api_name=False,
         ).then(
             fn=generate_image,
-            inputs=[img_file, num_steps, guidance_scale, seed, num_images],
+            inputs=[img_file, num_steps, guidance_scale, seed, num_images, use_lcm],
             outputs=[gallery]
         )
-    
+
+    use_lcm.input(
+            fn=toggle_lcm_ui,
+            inputs=[use_lcm],
+            outputs=[num_steps, guidance_scale],
+            queue=False,
+        )    
     
     gr.Examples(
         examples=get_example(),
