@@ -2,11 +2,12 @@
 
 # Arc2Face: A Foundation Model of Human Faces
 
-[Foivos Paraperas Papantoniou](https://foivospar.github.io/) &emsp; [Alexandros Lattas](https://alexlattas.com/) &emsp; [Stylianos Moschoglou](https://moschoglou.com/)   
+[Foivos Paraperas Papantoniou](https://foivospar.github.io/)<sup>1</sup> &emsp; [Alexandros Lattas](https://alexlattas.com/)<sup>1</sup> &emsp; [Stylianos Moschoglou](https://moschoglou.com/)<sup>1</sup>   
 
-[Jiankang Deng](https://jiankangdeng.github.io/) &emsp; [Bernhard Kainz](https://bernhard-kainz.com/) &emsp; [Stefanos Zafeiriou](https://www.imperial.ac.uk/people/s.zafeiriou)  
+[Jiankang Deng](https://jiankangdeng.github.io/)<sup>1</sup> &emsp; [Bernhard Kainz](https://bernhard-kainz.com/)<sup>1,2</sup> &emsp; [Stefanos Zafeiriou](https://www.imperial.ac.uk/people/s.zafeiriou)<sup>1</sup>  
 
-Imperial College London, UK
+<sup>1</sup>Imperial College London, UK <br>
+<sup>2</sup>FAU Erlangen-Nürnberg, Germany
 
 <a href='https://arc2face.github.io/'><img src='https://img.shields.io/badge/Project-Page-blue'></a>
 <a href='https://arxiv.org/abs/2403.11641'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
@@ -188,6 +189,12 @@ python gradio_demo/app_controlnet.py
 
 ### Pinokio
 - Pinokio [implementation](https://pinokio.computer/item?uri=https://github.com/cocktailpeanutlabs/arc2face) by [@cocktailpeanut](https://github.com/cocktailpeanut) (runs locally on all OS - Windows, Mac, Linux).
+
+# Acknowledgements
+- Thanks to the creators of [Stable Diffusion](https://huggingface.co/runwayml/stable-diffusion-v1-5) and the HuggingFace [diffusers](https://github.com/huggingface/diffusers) team for the awesome work ❤️.
+- Thanks to the WebFace42M creators for providing such a million-scale facial dataset ❤️.
+- Thanks to the HuggingFace team for their generous support through the community GPU grant for our demo ❤️.
+- We also acknowledge the invaluable support of the HPC resources provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), which made the training of Arc2Face possible.
 
 # Citation
 If you find Arc2Face useful for your research, please consider citing us:
