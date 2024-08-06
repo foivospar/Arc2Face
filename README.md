@@ -28,6 +28,8 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 # News/Updates
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/diffusion-personalization-tuning-free-on)](https://paperswithcode.com/sota/diffusion-personalization-tuning-free-on?p=arc2face-a-foundation-model-of-human-faces)
 
+- [2024/08/06] 🔥 ComfyUI support available at [caleboleary/ComfyUI-Arc2Face](https://github.com/caleboleary/ComfyUI-Arc2Face)!
+- [2024/07/03] 🔥 Accepted to ECCV24!
 - [2024/04/12] 🔥 We add LCM-LoRA support for even faster inference (check the details [below](#lcm-lora-acceleration)).
 - [2024/04/11] 🔥 We release the training dataset on [HuggingFace Datasets](https://huggingface.co/datasets/FoivosPar/Arc2Face).
 - [2024/03/31] 🔥 We release our demo for pose control using Arc2Face + ControlNet (see instructions [below](#arc2face--controlnet-pose)).
@@ -203,6 +205,9 @@ python gradio_demo/app_controlnet.py
 ### Replicate Demo
 - [Demo link](https://replicate.com/camenduru/arc2face) by [@camenduru](https://github.com/camenduru).
 
+### ComfyUI
+- [caleboleary/ComfyUI-Arc2Face](https://github.com/caleboleary/ComfyUI-Arc2Face) by [@caleboleary](https://github.com/caleboleary).
+  
 ### Pinokio
 - Pinokio [implementation](https://pinokio.computer/item?uri=https://github.com/cocktailpeanutlabs/arc2face) by [@cocktailpeanut](https://github.com/cocktailpeanut) (runs locally on all OS - Windows, Mac, Linux).
 
