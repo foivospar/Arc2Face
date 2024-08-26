@@ -187,11 +187,11 @@ def generate_image(image_path, ref_image_path, num_steps, guidance_scale, seed, 
 
 ### Description
 title = r"""
-<h1>Arc2Face: A Foundation Model of Human Faces</h1>
+<h1>Arc2Face: A Foundation Model for ID-Consistent Human Faces</h1>
 """
 
 description = r"""
-<b>Official 🤗 Gradio demo</b> for <a href='https://arc2face.github.io/' target='_blank'><b>Arc2Face: A Foundation Model of Human Faces</b></a>.<br>
+<b>Official 🤗 Gradio demo</b> for <a href='https://arc2face.github.io/' target='_blank'><b>Arc2Face: A Foundation Model for ID-Consistent Human Faces</b></a>.<br>
 This demo uses Arc2Face with ControlNet to generate images of a subject with the pose extracted from a reference image.
 
 Steps:<br>
@@ -209,7 +209,7 @@ Footer = r"""
 If you find Arc2Face helpful for your research, please consider citing our paper:
 ```bibtex
 @misc{paraperas2024arc2face,
-      title={Arc2Face: A Foundation Model of Human Faces}, 
+      title={Arc2Face: A Foundation Model for ID-Consistent Human Faces}, 
       author={Foivos Paraperas Papantoniou and Alexandros Lattas and Stylianos Moschoglou and Jiankang Deng and Bernhard Kainz and Stefanos Zafeiriou},
       year={2024},
       eprint={2403.11641},
