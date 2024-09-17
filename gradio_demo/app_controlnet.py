@@ -38,7 +38,7 @@ app = FaceAnalysis(name='antelopev2', root='./', providers=['CUDAExecutionProvid
 app.prepare(ctx_id=0, det_size=(640, 640))
 
 # Load pipeline
-base_model = 'runwayml/stable-diffusion-v1-5'
+base_model = 'stable-diffusion-v1-5/stable-diffusion-v1-5'
 encoder = CLIPTextModelWrapper.from_pretrained(
     'models', subfolder="encoder", torch_dtype=dtype
 )

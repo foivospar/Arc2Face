@@ -88,7 +88,9 @@ from insightface.app import FaceAnalysis
 from PIL import Image
 import numpy as np
 
-base_model = 'runwayml/stable-diffusion-v1-5'
+# Arc2Face is built upon SD1.5
+# The repo below can be used instead of the now deprecated 'runwayml/stable-diffusion-v1-5'
+base_model = 'stable-diffusion-v1-5/stable-diffusion-v1-5'
 
 encoder = CLIPTextModelWrapper.from_pretrained(
     'models', subfolder="encoder", torch_dtype=torch.float16
@@ -212,7 +214,7 @@ python gradio_demo/app_controlnet.py
 - Pinokio [implementation](https://pinokio.computer/item?uri=https://github.com/cocktailpeanutlabs/arc2face) by [@cocktailpeanut](https://github.com/cocktailpeanut) (runs locally on all OS - Windows, Mac, Linux).
 
 # Acknowledgements
-- Thanks to the creators of [Stable Diffusion](https://huggingface.co/runwayml/stable-diffusion-v1-5) and the HuggingFace [diffusers](https://github.com/huggingface/diffusers) team for the awesome work ❤️.
+- Thanks to the creators of Stable Diffusion and the HuggingFace [diffusers](https://github.com/huggingface/diffusers) team for the awesome work ❤️.
 - Thanks to the WebFace42M creators for providing such a million-scale facial dataset ❤️.
 - Thanks to the HuggingFace team for their generous support through the community GPU grant for our demo ❤️.
 - We also acknowledge the invaluable support of the HPC resources provided by the Erlangen National High Performance Computing Center (NHR@FAU) of the Friedrich-Alexander-Universität Erlangen-Nürnberg (FAU), which made the training of Arc2Face possible.
