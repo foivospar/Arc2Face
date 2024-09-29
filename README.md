@@ -223,12 +223,10 @@ python gradio_demo/app_controlnet.py
 If you find Arc2Face useful for your research, please consider citing us:
 
 ```bibtex
-@misc{paraperas2024arc2face,
+@inproceedings{paraperas2024arc2face,
       title={Arc2Face: A Foundation Model for ID-Consistent Human Faces}, 
-      author={Foivos Paraperas Papantoniou and Alexandros Lattas and Stylianos Moschoglou and Jiankang Deng and Bernhard Kainz and Stefanos Zafeiriou},
-      year={2024},
-      eprint={2403.11641},
-      archivePrefix={arXiv},
-      primaryClass={cs.CV}
+      author={Paraperas Papantoniou, Foivos and Lattas, Alexandros and Moschoglou, Stylianos and Deng, Jiankang and Kainz, Bernhard and Zafeiriou, Stefanos},
+      booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
+      year={2024}
 }
 ```
