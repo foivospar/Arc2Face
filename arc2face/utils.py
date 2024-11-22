@@ -22,7 +22,7 @@ def project_face_embs(pipeline, face_embs):
         ).input_ids.to(pipeline.device)
 
     face_embs_padded = F.pad(face_embs, (0, pipeline.text_encoder.config.hidden_size-512), "constant", 0)
-    token_embs = pipeline.text_encoder(input_ids=input_ids.repeat(len(face_embs), 1), return_token_embs=True)
+    token_embs = pipeline.text_encoder(input_ids=input_ids.repeat(len(face_embs), 1), return_token_embs=True)#word embedding
     token_embs[input_ids==arcface_token_id] = face_embs_padded
 
     prompt_embeds = pipeline.text_encoder(

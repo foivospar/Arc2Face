@@ -1,0 +1,85 @@
+67fa90380ece:76192:76192 [0] NCCL INFO Bootstrap : Using eth0:173.0.79.2<0>
+67fa90380ece:76192:76192 [0] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+67fa90380ece:76192:76192 [0] NCCL INFO cudaDriverVersion 12020
+NCCL version 2.14.3+cuda11.7
+
+67fa90380ece:76192:76233 [0] misc/ibvwrap.cc:222 NCCL WARN Call to ibv_open_device failed
+
+67fa90380ece:76192:76233 [0] transport/net_ib.cc:181 NCCL WARN NET/IB : Unable to open device mlx5_0
+67fa90380ece:76192:76233 [0] NCCL INFO NET/IB : No device found.
+67fa90380ece:76192:76233 [0] NCCL INFO NET/Socket : Using [0]eth0:173.0.79.2<0>
+67fa90380ece:76192:76233 [0] NCCL INFO Using network Socket
+67fa90380ece:76195:76195 [3] NCCL INFO cudaDriverVersion 12020
+67fa90380ece:76193:76193 [1] NCCL INFO cudaDriverVersion 12020
+67fa90380ece:76193:76193 [1] NCCL INFO Bootstrap : Using eth0:173.0.79.2<0>
+67fa90380ece:76195:76195 [3] NCCL INFO Bootstrap : Using eth0:173.0.79.2<0>
+67fa90380ece:76193:76193 [1] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+67fa90380ece:76195:76195 [3] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+
+67fa90380ece:76193:76234 [1] misc/ibvwrap.cc:222 NCCL WARN Call to ibv_open_device failed
+
+67fa90380ece:76193:76234 [1] transport/net_ib.cc:181 NCCL WARN NET/IB : Unable to open device mlx5_0
+67fa90380ece:76193:76234 [1] NCCL INFO NET/IB : No device found.
+67fa90380ece:76193:76234 [1] NCCL INFO NET/Socket : Using [0]eth0:173.0.79.2<0>
+67fa90380ece:76193:76234 [1] NCCL INFO Using network Socket
+
+67fa90380ece:76195:76235 [3] misc/ibvwrap.cc:222 NCCL WARN Call to ibv_open_device failed
+
+67fa90380ece:76195:76235 [3] transport/net_ib.cc:181 NCCL WARN NET/IB : Unable to open device mlx5_0
+67fa90380ece:76195:76235 [3] NCCL INFO NET/IB : No device found.
+67fa90380ece:76195:76235 [3] NCCL INFO NET/Socket : Using [0]eth0:173.0.79.2<0>
+67fa90380ece:76195:76235 [3] NCCL INFO Using network Socket
+67fa90380ece:76194:76194 [2] NCCL INFO cudaDriverVersion 12020
+67fa90380ece:76194:76194 [2] NCCL INFO Bootstrap : Using eth0:173.0.79.2<0>
+67fa90380ece:76194:76194 [2] NCCL INFO NET/Plugin : No plugin found (libnccl-net.so), using internal implementation
+
+67fa90380ece:76194:76236 [2] misc/ibvwrap.cc:222 NCCL WARN Call to ibv_open_device failed
+
+67fa90380ece:76194:76236 [2] transport/net_ib.cc:181 NCCL WARN NET/IB : Unable to open device mlx5_0
+67fa90380ece:76194:76236 [2] NCCL INFO NET/IB : No device found.
+67fa90380ece:76194:76236 [2] NCCL INFO NET/Socket : Using [0]eth0:173.0.79.2<0>
+67fa90380ece:76194:76236 [2] NCCL INFO Using network Socket
+67fa90380ece:76194:76236 [2] NCCL INFO Setting affinity for GPU 2 to 0fff,fc000000
+67fa90380ece:76195:76235 [3] NCCL INFO Setting affinity for GPU 3 to 0fff,fc000000
+67fa90380ece:76192:76233 [0] NCCL INFO Setting affinity for GPU 0 to 0fff,fc000000
+67fa90380ece:76193:76234 [1] NCCL INFO Setting affinity for GPU 1 to 0fff,fc000000
+67fa90380ece:76194:76236 [2] NCCL INFO Trees [0] 3/-1/-1->2->1 [1] 3/-1/-1->2->1
+67fa90380ece:76193:76234 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/-1/-1->1->0
+67fa90380ece:76192:76233 [0] NCCL INFO Channel 00/02 :    0   1   2   3
+67fa90380ece:76192:76233 [0] NCCL INFO Channel 01/02 :    0   1   2   3
+67fa90380ece:76195:76235 [3] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+67fa90380ece:76192:76233 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] 1/-1/-1->0->-1
+67fa90380ece:76194:76236 [2] NCCL INFO Channel 00/0 : 2[8b000] -> 3[8c000] via P2P/IPC
+67fa90380ece:76195:76235 [3] NCCL INFO Channel 00/0 : 3[8c000] -> 0[89000] via P2P/IPC
+67fa90380ece:76192:76233 [0] NCCL INFO Channel 00/0 : 0[89000] -> 1[8a000] via P2P/IPC
+67fa90380ece:76193:76234 [1] NCCL INFO Channel 00/0 : 1[8a000] -> 2[8b000] via P2P/IPC
+67fa90380ece:76195:76235 [3] NCCL INFO Channel 01/0 : 3[8c000] -> 0[89000] via P2P/IPC
+67fa90380ece:76194:76236 [2] NCCL INFO Channel 01/0 : 2[8b000] -> 3[8c000] via P2P/IPC
+67fa90380ece:76192:76233 [0] NCCL INFO Channel 01/0 : 0[89000] -> 1[8a000] via P2P/IPC
+67fa90380ece:76193:76234 [1] NCCL INFO Channel 01/0 : 1[8a000] -> 2[8b000] via P2P/IPC
+67fa90380ece:76194:76236 [2] NCCL INFO Connected all rings
+67fa90380ece:76194:76236 [2] NCCL INFO Channel 00/0 : 2[8b000] -> 1[8a000] via P2P/IPC
+67fa90380ece:76193:76234 [1] NCCL INFO Connected all rings
+67fa90380ece:76195:76235 [3] NCCL INFO Connected all rings
+67fa90380ece:76195:76235 [3] NCCL INFO Channel 00/0 : 3[8c000] -> 2[8b000] via P2P/IPC
+67fa90380ece:76194:76236 [2] NCCL INFO Channel 01/0 : 2[8b000] -> 1[8a000] via P2P/IPC
+67fa90380ece:76195:76235 [3] NCCL INFO Channel 01/0 : 3[8c000] -> 2[8b000] via P2P/IPC
+67fa90380ece:76192:76233 [0] NCCL INFO Connected all rings
+67fa90380ece:76193:76234 [1] NCCL INFO Channel 00/0 : 1[8a000] -> 0[89000] via P2P/IPC
+67fa90380ece:76193:76234 [1] NCCL INFO Channel 01/0 : 1[8a000] -> 0[89000] via P2P/IPC
+67fa90380ece:76195:76235 [3] NCCL INFO Connected all trees
+67fa90380ece:76195:76235 [3] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+67fa90380ece:76195:76235 [3] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+67fa90380ece:76192:76233 [0] NCCL INFO Connected all trees
+67fa90380ece:76192:76233 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+67fa90380ece:76192:76233 [0] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+67fa90380ece:76194:76236 [2] NCCL INFO Connected all trees
+67fa90380ece:76193:76234 [1] NCCL INFO Connected all trees
+67fa90380ece:76193:76234 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+67fa90380ece:76193:76234 [1] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+67fa90380ece:76194:76236 [2] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+67fa90380ece:76194:76236 [2] NCCL INFO 2 coll channels, 2 p2p channels, 2 p2p channels per peer
+67fa90380ece:76193:76234 [1] NCCL INFO comm 0x55eeb036a300 rank 1 nranks 4 cudaDev 1 busId 8a000 - Init COMPLETE
+67fa90380ece:76194:76236 [2] NCCL INFO comm 0x55d1cf20b300 rank 2 nranks 4 cudaDev 2 busId 8b000 - Init COMPLETE
+67fa90380ece:76195:76235 [3] NCCL INFO comm 0x55906deba050 rank 3 nranks 4 cudaDev 3 busId 8c000 - Init COMPLETE
+67fa90380ece:76192:76233 [0] NCCL INFO comm 0x555c77883b60 rank 0 nranks 4 cudaDev 0 busId 89000 - Init COMPLETE
