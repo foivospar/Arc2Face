@@ -202,6 +202,9 @@ You can start a local ControlNet demo by running:
 python gradio_demo/app_controlnet.py
 ```
 
+# Test Data
+The test images used for comparisons in the paper (Synth-500, AgeDB) are available [here](https://drive.google.com/drive/folders/1exnvCECmqWcqNIFCck2EQD-hkE42Ayjc?usp=sharing). Please use them only for evaluation purposes and make sure to cite the corresponding [sources](https://ibug.doc.ic.ac.uk/resources/agedb/) when using them.
+
 # Community Resources
 
 ### Replicate Demo
