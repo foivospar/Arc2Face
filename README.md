@@ -1,5 +1,16 @@
 <div align="center">
 
+## 🚀 NEW (2025): ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion
+
+📄 **Check out our latest extension!**  
+We introduce a fine-grained **Expression Adapter**, enabling Arc2Face to generate any subject under any facial expression (even rare, asymmetric, subtle, or extreme ones). See details [below](#arc2face--expression-adapter).
+
+<a href='http://arxiv.org/abs/2510.04706'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
+
+<img src='assets/exp_teaser.jpg'>
+
+---
+
 # Arc2Face: A Foundation Model for ID-Consistent Human Faces
 
 [Foivos Paraperas Papantoniou](https://foivospar.github.io/)<sup>1</sup> &emsp; [Alexandros Lattas](https://alexlattas.com/)<sup>1</sup> &emsp; [Stylianos Moschoglou](https://moschoglou.com/)<sup>1</sup>   
@@ -28,6 +39,7 @@ This is the official implementation of **[Arc2Face](https://arc2face.github.io/)
 # News/Updates
 [![PWC](https://img.shields.io/endpoint.svg?url=https://paperswithcode.com/badge/arc2face-a-foundation-model-of-human-faces/diffusion-personalization-tuning-free-on)](https://paperswithcode.com/sota/diffusion-personalization-tuning-free-on?p=arc2face-a-foundation-model-of-human-faces)
 
+- [2025/10/07] 🔥 We release an extension for accurate and ID-consistent facial expression transfer. See details [below](#arc2face--expression-adapter)!
 - [2024/08/16] 🔥 Accepted to ECCV24 as an **oral**!
 - [2024/08/06] 🔥 ComfyUI support available at [caleboleary/ComfyUI-Arc2Face](https://github.com/caleboleary/ComfyUI-Arc2Face)!
 - [2024/04/12] 🔥 We add LCM-LoRA support for even faster inference (check the details [below](#lcm-lora-acceleration)).
@@ -202,6 +214,39 @@ You can start a local ControlNet demo by running:
 python gradio_demo/app_controlnet.py
 ```
 
+# Arc2Face + Expression Adapter
+
+Our extension ["ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion"](http://arxiv.org/abs/2510.04706) combines Arc2Face with a custom IP-Adapter designed for generating ID-consistent images with precise expression control based on FLAME blendshape parameters. We also provide an optional Reference Adapter which can be used to condition the output directly on the input image, i.e. preserving the subject's appearance and background (to an extent). You find more details in the report.
+
+<div align="center">
+<img src='assets/arc2face_exp.jpg'>
+</div>
+
+<br>
+Here's how to run it:
+
+### 1) Download Model
+Download the Expression and Reference Adapters manually from [HuggingFace](https://huggingface.co/FoivosPar/Arc2Face) or using python:
+```python
+from huggingface_hub import hf_hub_download
+
+hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="exp_adapter/exp_adapter.bin", local_dir="./models")
+hf_hub_download(repo_id="FoivosPar/Arc2Face", filename="ref_adapter/pytorch_lora_weights.safetensors", local_dir="./models")
+```
+### 2) Download third-party models (SMIRK)
+We use the [SMIRK](https://github.com/georgeretsi/smirk) method to extract FLAME expression parameters from the target image. Download the required checkpoints **face_landmarker.task** and **SMIRK_em1.pt** and put them under `models/smirk`:
+```bash
+mkdir models/smirk
+wget https://storage.googleapis.com/mediapipe-models/face_landmarker/face_landmarker/float16/latest/face_landmarker.task --directory-prefix models/smirk
+pip install gdown
+gdown --id 1T65uEd9dVLHgVw5KiUYL66NUee-MCzoE -O models/smirk/
+```
+### 3) Start a local gradio demo
+Then, just run the demo and follow the instructions:
+```python
+python gradio_demo/app_exp_adapter.py
+```
+
 # Test Data
 The test images used for comparisons in the paper (Synth-500, AgeDB) are available [here](https://drive.google.com/drive/folders/1exnvCECmqWcqNIFCck2EQD-hkE42Ayjc?usp=sharing). Please use them only for evaluation purposes and make sure to cite the corresponding [sources](https://ibug.doc.ic.ac.uk/resources/agedb/) when using them.
 
@@ -231,5 +276,15 @@ If you find Arc2Face useful for your research, please consider citing us:
       author={Paraperas Papantoniou, Foivos and Lattas, Alexandros and Moschoglou, Stylianos and Deng, Jiankang and Kainz, Bernhard and Zafeiriou, Stefanos},
       booktitle={Proceedings of the European Conference on Computer Vision (ECCV)},
       year={2024}
+}
+```
+Additionally, if you use the Expression Adapter, please also cite the extension:
+
+```bibtex
+@inproceedings{paraperas2025arc2face_exp,
+      title={ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion}, 
+      author={Paraperas Papantoniou, Foivos and Zafeiriou, Stefanos},
+      booktitle={Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV) Workshops},
+      year={2025}
 }
 ```

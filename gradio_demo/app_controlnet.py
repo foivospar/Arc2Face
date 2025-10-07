@@ -197,7 +197,7 @@ This demo uses Arc2Face with ControlNet to generate images of a subject with the
 Steps:<br>
 1. Upload an image with a face. If multiple faces are detected, we use the largest one. For images with already tightly cropped faces, detection may fail, try images with a larger margin.
 2. Upload a reference image for the pose (can be a different subject). We align this image to the FFHQ template for pose extraction (so, the final generated images correspond to the aligned pose). Again, if multiple faces are detected, we use the largest one.
-2. Click <b>Submit</b> to generate new images of the input subject with the reference pose.
+3. Click <b>Submit</b> to generate new images of the input subject with the reference pose.
 
 Note: For pose extraction and conditioning, we use a 3D reconstruction <a href='https://github.com/radekd91/emoca'>method</a> based on the FLAME model (we use only the rendered mesh normals as conditioning image, which is visualized alongside the output images). Reconstruction may fail in extreme poses (normals will correspond to random poses instead of the given one).
 """

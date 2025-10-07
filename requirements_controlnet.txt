@@ -1,6 +1,6 @@
 numpy<1.24.0
-diffusers==0.23.0
-transformers==4.34.1
+diffusers==0.29.2
+transformers==4.36.0
 peft
 accelerate
 insightface
