@@ -169,7 +169,7 @@ Note that this technique accelerates sampling in exchange for a slight drop in q
 
 # Start a local gradio demo
 You can start a local demo for inference by running:
-```python
+```bash
 python gradio_demo/app.py
 ```
 
@@ -210,13 +210,13 @@ cd ../../../../..
 ```
 ### 4) Start a local gradio demo
 You can start a local ControlNet demo by running:
-```python
+```bash
 python gradio_demo/app_controlnet.py
 ```
 
 # Arc2Face + Expression Adapter
 
-Our extension ["ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion"](http://arxiv.org/abs/2510.04706) combines Arc2Face with a custom IP-Adapter designed for generating ID-consistent images with precise expression control based on FLAME blendshape parameters. We also provide an optional Reference Adapter which can be used to condition the output directly on the input image, i.e. preserving the subject's appearance and background (to an extent). You find more details in the report.
+Our extension ["ID-Consistent, Precise Expression Generation with Blendshape-Guided Diffusion"](http://arxiv.org/abs/2510.04706) combines Arc2Face with a custom IP-Adapter designed for generating ID-consistent images with precise expression control based on FLAME blendshape parameters. We also provide an optional Reference Adapter which can be used to condition the output directly on the input image, i.e. preserving the subject's appearance and background (to an extent). You can find more details in the report.
 
 <div align="center">
 <img src='assets/arc2face_exp.jpg'>
@@ -243,7 +243,7 @@ gdown --id 1T65uEd9dVLHgVw5KiUYL66NUee-MCzoE -O models/smirk/
 ```
 ### 3) Start a local gradio demo
 Then, just run the demo and follow the instructions:
-```python
+```bash
 python gradio_demo/app_exp_adapter.py
 ```
 
