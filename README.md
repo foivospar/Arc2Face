@@ -6,6 +6,7 @@
 We introduce a fine-grained **Expression Adapter**, enabling Arc2Face to generate any subject under any facial expression (even rare, asymmetric, subtle, or extreme ones). See details [below](#arc2face--expression-adapter).
 
 <a href='http://arxiv.org/abs/2510.04706'><img src='https://img.shields.io/badge/Paper-arXiv-red'></a>
+<a href='https://huggingface.co/FoivosPar/Arc2Face'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-orange'></a>
 
 <img src='assets/exp_teaser.jpg'>
 
